@@ -1,0 +1,25 @@
+<mat-sidenav-container>  
+  <mat-sidenav opened=false mode="over">drawer</mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+    <mat-toolbar-row >    
+            <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="saveit()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>Customer PWA</span>   
+ </mat-toolbar-row>
+    <mat-toolbar-row>
+      <span class="menu-spacer"></span>
+      <div>     
+         <a mat-button [routerLink]="'/customers'"> Customers </a>    
+         <a mat-button [routerLink]="'/'"> Home </a> 
+      </div>
+    </mat-toolbar-row> 
+  </mat-toolbar>   
+   <!--this is the most iportat part, because if you dont have this, the router will not work,
+Router-Outlet is an Angular directive from the router library
+ that is used to insert the component matched by routes to be displayed on the screen--> 
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+  
+</mat-sidenav-container>

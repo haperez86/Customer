@@ -1,0 +1,39 @@
+<div class="container add-customer-container">
+  <div>
+    <mat-card>
+      <h3 style="text-align: center">Students Data</h3>
+      <div>
+        <mat-form-field appearance="outline" class="form-element">
+          <mat-label>Names</mat-label>
+          <input matInput  [(ngModel)] ="customerForm.name" />
+        </mat-form-field>
+      </div>
+ 
+      <div>
+        <mat-form-field appearance="outline" class="form-element">
+          <mat-label>email</mat-label>
+          <input matInput type="email" [(ngModel)] ="customerForm.email"/>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="outline" class="form-element">
+          <mat-label>Positio</mat-label>
+          <mat-select [(ngModel)] ="customerForm.position">
+            <mat-option value="Manager">Manager</mat-option>
+            <mat-option value="Technical">Technical</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+       <div>
+        <mat-form-field appearance="outline" class="form-element">
+          <mat-label>Age</mat-label>
+          <input matInput  type="number" [(ngModel)] ="customerForm.age"/>
+        </mat-form-field>
+      </div>
+      <div>
+        <button mat-raised-button color="primary" (click)="create()">Save</button>     
+        <button mat-raised-button   color="warn" (click)="closeDialog()">Cancel</button>
+      </div>
+    </mat-card>
+  </div>
+</div>

@@ -1,0 +1,52 @@
+<mat-toolbar color="warn" class="header">
+    <span>List of Customer</span>
+  </mat-toolbar>
+   <table mat-table [dataSource]="dataSource" matSort>
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> ID. </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+      <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+    </ng-container>
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Position </th>
+      <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+    </ng-container>
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Actions </th>
+      <td mat-cell *matCellDef="let element">
+        <mat-icon
+        (click)="openDeleteModal(element.id)"
+         aria-hidden="false"
+         aria-label="delete icon"
+         fontIcon="delete">
+       </mat-icon> 
+       <mat-icon
+        (click)="openEditModal(element)"
+         aria-hidden="false"
+         aria-label="edit icon"
+         fontIcon="edit">
+       </mat-icon> 
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="col"></tr>
+    <tr mat-row *matRowDef="let row; columns: col;"></tr>
+  </table>
+  <mat-paginator class="center" [pageSizeOptions]="[7, 14, 28]" showFirstLastButtons></mat-paginator>
+
+  <mat-divider></mat-divider>
+  <section class="center">         
+      <button mat-flat-button color="primary" (click)="openEditModal(null)" >Add</button>  
+  </section>
+  <mat-divider></mat-divider>
+
+
+
+
+
