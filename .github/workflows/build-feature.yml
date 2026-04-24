@@ -1,0 +1,30 @@
+name: build and test feature branch
+
+on:
+  push:
+    branches: [ "feature/*" ]
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup node 18
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+    
+    - name: Install npm packages
+      run: npm install
+    
+    - name: Install latest angular version
+      run: npm install -g @angular/cli@latest
+    
+    - name: Run test and build angular app
+      run: |
+        ng test --watch=false
+        ng build --prod
+        echo "Run test and build angular app"
+
